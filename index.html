@@ -1,0 +1,268 @@
+<html>
+  <head>
+    <title>
+      Real Actual Magic
+    </title>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="slides" class="loading">
+      <section class="center">
+        <h1>Real Actual Magic</h1>
+        <p style="margin-top: -1em;"><em>Film, VFX, and Mary Poppins</em></p>
+      </section>
+
+      <section>
+        <h2><em>Mary Poppins</em> is Magic</h2>
+        <ul>
+          <li><em>Mary Poppins</em> is a 1964 movie about a magical nanny transforming a family</li>
+          <li>But I'm saying the movie itself contains actual magic</li>
+        </ul>
+      </section>
+
+      <section class="center">
+        <h1>First: some background</h1>
+      </section>
+
+      <section>
+        <h2>What is film, anyway?</h2>
+        <ul>
+          <li><em>Mary Poppins</em> was filmed in the 60s</li>
+          <li>Computers were not an option</li>
+          <li>All effects are analog, done directly on film</li>
+          <li>So let's get into what that actually is</li>
+        </ul>
+      </section>
+
+      <section>
+        <channel data-bw="true" data-order="0" data-disappear="2"></channel>
+        <channel data-bw="true" data-negate="true" data-order="2"></channel>
+        <h2>It's Chemicals™</h2>
+        <ul>
+          <li>Camera focuses light through the lens onto a piece of film stock</li>
+          <li>Film has chemicals that react to light</li>
+          <li>In a dark room to prevent further exposure, film is bathed in chemicals to prevent further exposure</li>
+          <li data-order="1">Parts that were exposed more end up darker (a negative)</li>
+          <li data-order="3">Negative is used to expose a second copy, making a positive</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>What is visible light?</h2>
+        <ul>
+          <li>Electromagnetic radiation</li>
+          <li>"Visible" is a specific range of wavelengths</li>
+          <li>Rods are mostly for low-light sensing; cones are for colour imaging</li>
+          <li>Different cone types respond to different frequencies</li>
+        </ul>
+      </section>
+
+      <section>
+        <blend data-type='ADD'></blend>
+        <channel data-mode="#F00"></channel>
+        <channel data-mode="#0F0">
+          <transition data-at="1" data-x="-0.5"></transition>
+          <transition data-at="2" data-x="-1"></transition>
+        </channel>
+        <channel data-mode="#00F">
+          <transition data-at="1" data-y="-0.5"></transition>
+          <transition data-at="2" data-y="-1"></transition>
+        </channel>
+        <h2>So colour isn't real, actually</h2>
+        <ul>
+          <li>We perceive a continuous spectrum of colour, but we don't have perfect sensors</li>
+          <li>Hues perceived based on the inputs from these three types of cones</li>
+          <li>We don't have a special yellow sensor; we perceive yellow when green/red sensors are both active</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>So what does film see?</h2>
+        <ul>
+          <li>Depends on the film</li>
+          <li>Black-and-white film originally was most sensitive to blue/green</li>
+          <li>This is why some dark rooms for developing b/w film can be lit with red light without exposing the film</li>
+        </ul>
+      </section>
+
+      <section>
+        <channel data-bw="true"></channel>
+        <channel data-bw="true", data-tint="#F00" data-x="-1"></channel>
+        <h2>Fake colour: Tinted B/W</h2>
+        <ul>
+          <li>e.g. most of <em>Phantom of the Opera</em> (1925)</li>
+          <li>B/W film dyed a different hue</li>
+          <li><em>Tinting:</em> White is not preserved; black is</li>
+        </ul>
+      </section>
+
+      <section>
+        <blend data-type='ADD'></blend>
+        <channel data-mode="#0FC" data-bw="true"></channel>
+        <channel data-mode="#F00" data-bw="true" data-y="-1"></channel>
+        <channel data-mode="#0FC" data-bw="true" data-tint="#0FC" data-x="-1"></channel>
+        <channel data-mode="#F00" data-bw="true" data-tint="#F00" data-x="-1" data-y="-1">
+          <transition data-at="1" data-y="0"></transition>
+        </channel>
+        <h2>Early colour: Technicolor Process 1</h2>
+        <ul>
+          <li>e.g. 17 minutes of of <em>Phantom of the Opera</em> (1925)</li>
+          <li>Two frames of film exposed at once: one with a green filter, one red</li>
+          <li>The positives of each are tinted to orange-red and cyan-green, opposites of filters</li>
+          <li>Both frames are projected at once, combining colours <em>additively</em>
+            <ul>
+              <li>Light is <em>added</em> from both frames at once on the screen to produce final colour</li>
+              <li>When your eye sees orange-red on top of cyan-green, it sees white</li>
+              <li>When the film blocks light from both, no light gets through and we see black</li>
+            </ul>
+          </li>
+          <li>...but you need a good projectionist and equipment to keep the frames aligned</li>
+        </ul>
+      </section>
+
+      <section>
+        <blend data-type='SUBTRACT'></blend>
+        <channel data-mode="#0FC" data-negate="true" data-bw="true"></channel>
+        <channel data-mode="#F00" data-negate="true" data-bw="true" data-y="-1"></channel>
+        <channel data-mode="#0FF" data-negate="true" data-bw="true" data-tone="#F00" data-x="-1"></channel>
+        <channel data-mode="#F04" data-negate="true" data-bw="true" data-tone="#0FC" data-x="-1" data-y="-1">
+          <transition data-at="1" data-y="0"></transition>
+        </channel>
+        <h2>Early colour: Technicolor Process 2 and 3</h2>
+        <ul>
+          <li>Two frames of film exposed at once: one with a green filter, one red</li>
+          <li><em>Toning:</em> White is preserved, black is not preserved</li>
+          <li>The positives of each are toned to orange-red and cyan-green, opposites of filters</li>
+          <li>Toned positives are combined <em>subtractively</em> onto a single frame
+            <ul>
+              <li>Each colour added onto the film will absorb more light</li>
+              <li>When both orange-red and cyan-green are printed on top of each other, it absorbs all light, and we see black</li>
+              <li>When neither is printed, all light passes through the film, and we see white</li>
+            </ul>
+          </li>
+          <li>It's just one frame! We can hire any random teenager to project this!</li>
+        </ul>
+      </section>
+
+      <section>
+        <blend data-type='SUBTRACT'></blend>
+        <channel data-mode="#F00" data-negate="true" data-bw="true" data-tone="#0FF">
+          <transition data-at="1" data-mode="#F00" data-negate="true" data-bw="true" data-tone="#0FF"></transition>
+          <transition data-at="1" data-x="0"></transition>
+        </channel>
+        <channel data-mode="#0F0" data-negate="true" data-bw="true" data-tone="#F0F" data-x="-1">
+          <transition data-at="1" data-x="0"></transition>
+        </channel>
+        <channel data-mode="#00F" data-negate="true" data-bw="true" data-tone="#FF0" data-y="-1">
+          <transition data-at="2" data-y="0"></transition>
+        </channel>
+        <h2>Modern colour: Three-Strip Technicolor (Process 4)</h2>
+        <ul>
+          <li>To capture a much closer* colour representation, three frames of film exposed at once: red, green, blue
+            <ul><li>*still fine-tuned for good skin tones on white actors mostly</li></ul>
+          </li>
+          <li>Red filtered light printed in cyan, green in magenta, yellow in blue</li>
+          <li>This is what <em>Wizard of Oz</em> (1939) through to <em>The Godfather Part II</em> (1974)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>So you want to put a character on a different background?</h2>
+      </section>
+
+      <section>
+        <h2>Option 1: Rear Projection</h2>
+        <ul>
+          <li>e.g. <em>2001: A Space Odyssey</em> (1968)</li>
+          <li>Place a screen behind actors, light it from behind with the background you want</li>
+          <li>Transparent stuff works! Reflections work!</li>
+          <li>Getting good lighting/contrast hard
+            <ul><li>This is better now using LED panels</li></ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Option 2: In-Camera Double Exposure</h2>
+        <ul>
+          <li>Block out the light from one area while filming your foreground</li>
+          <li>Block out the opposite area and film again over the same frames to fill the background</li>
+          <li>This is <em>masking</em>, a key concept</li>
+          <li>e.g. <em>A Trip to the Moon</em> (1902)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Option 3: Printed Double Exposure</h2>
+        <ul>
+          <li>Film foreground/background separately</li>
+          <li>Combine them using masks using a special compositing printer</li>
+          <li>Key benefit: You can make your mask film however you want!</li>
+          <li>But how?</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Option 3a: Rotoscoping</h2>
+        <ul>
+          <li>Get someone to trace over the outlines of shapes manually</li>
+          <li>This takes a lot of work</li>
+          <li>We still do this! (But mostly to clean up other techniques)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Option 3b: Luma Matte</h2>
+        <ul>
+          <li>Idea: adjust the exposure of your film until bright parts become pure white and dark parts pure black</li>
+          <li>Basically: thresholding</li>
+          <li>Not very good at separating foreground/background usually</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Option 3c: Chroma Matte</h2>
+        <ul>
+          <li>Idea: Do a luma matte on just one colour channel</li>
+          <li>Make the colour behind your actors be the colour of the filter for that channel</li>
+          <li>This means that your actors cannot wear that colour or else it will become part of the background</li>
+          <li>Can basically only key out green or blue; too much red in skin tones</li>
+          <li>Getting a clear edge or transparency is hard
+            <ul>
+              <li>Each channel has a broad frequency range</li>
+              <li>Hard to eliminate all of the background without also getting some of the foreground by accident</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Wait, no transparency? No fine edges?</h2>
+        <p>Insert Mary Poppins here</p>
+      </section>
+
+      <section>
+        <h1>How??</h1>
+      </section>
+
+      <section>
+        <h1>Actual Magic</h1>
+      </section>
+
+      <section>
+        <h1>Let me explain</h1>
+      </section>
+
+      <section class="center">
+        <h1>Thanks</h1>
+      </section>
+    </div>
+
+    <script type="text/javascript" src="slides.js"></script>
+    <script type="text/javascript" src="slides/slide.js"></script>
+    <script type="text/javascript" src="renderer.js"></script>
+    <script type="text/javascript" src="lib/p5.js"></script>
+  </body>
+</html>
