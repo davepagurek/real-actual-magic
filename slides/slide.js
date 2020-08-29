@@ -14,6 +14,11 @@ class Slide {
       x: 0,
       y: 0,
       mode: '#FFF',
+      matte: '#000',
+      isMatte: false,
+      vizMatte: true,
+      a: 1,
+      b: 1,
       negate: false,
       order: 0,
       disappear: 0,
@@ -28,10 +33,14 @@ class Slide {
       order: true,
       disapper: true,
       at: true,
+      a: true,
+      b: true,
     };
     const boolKeys = {
       negate: true,
       bw: true,
+      isMatte: true,
+      vizMatte: true,
     };
     const parseAttribs = (n, channel) => {
       for (const key in defaultChannel) {
