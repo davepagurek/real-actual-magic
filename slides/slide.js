@@ -47,7 +47,15 @@ class Slide {
         const value = n.getAttribute(`data-${key}`);
         if (value) {
           if (numericKeys[key]) {
-            channel[key] = parseFloat(value);
+            if (value.startsWith('#')) {
+              const input = node.querySelector(value);
+              channel[key] = parseFloat(input.value);
+              input.addEventListener('change', () => {
+                channel[key] = parseFloat(input.value);
+              });
+            } else {
+              channel[key] = parseFloat(value);
+            }
           } else if (boolKeys[key]) {
             channel[key] = value === 'true';
           } else {
@@ -115,6 +123,9 @@ class Slide {
       for (const key of ['x', 'y']) {
         this.channelStates[i][key] +=
           (this.channelTargets[i][key] - this.channelStates[i][key]) / 10;
+      }
+      for (const key of ['a', 'b']) {
+        this.channelStates[i][key] = this.channels[i][key];
       }
     }
     if (this.visible) {

@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <body>
+  <body style="background-color:#f2d0d0">
     <div id="slides" class="loading">
       <section class="center">
         <h1>Real Actual Magic</h1>
@@ -32,6 +32,13 @@
         <div class="row"><div class="column fill center">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/zy7XEMeBROQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div></div>
+      </section>
+
+      <section>
+        <h2>Motivation</h2>
+        <div class="center">
+          <img src="img/motivation.png" />
+        </div>
       </section>
 
       <section class="center">
@@ -479,14 +486,23 @@
       </section>
 
       <section>
-        <channel data-matte="#000" data-a="-0.08" data-isMatte="true" data-x="-1"></channel>
-        <channel data-matte="#000" data-a="-0.08" data-isMatte="true" data-vizMatte="false"></channel>
+        <!-- -0.08, 1 -->
+        <channel data-matte="#000" data-negate="true" data-a="#a1" data-b="#b1" data-isMatte="true" data-x="-1"></channel>
+        <channel data-matte="#000" data-negate="true" data-a="#a1" data-b="#b1" data-isMatte="true" data-vizMatte="false"></channel>
         <h2>Option 3b: Luma Matte</h2>
-        <ul>
-          <li>Idea: adjust the exposure of your film until bright parts become pure white and dark parts pure black</li>
-          <li>Basically: thresholding</li>
-          <li>Not very good at separating foreground/background usually</li>
-        </ul>
+        <div class="row">
+          <ul>
+            <li>Idea: adjust the exposure of your film until bright parts become pure white and dark parts pure black</li>
+            <li>Basically: thresholding</li>
+            <li>Not very good at separating foreground/background usually</li>
+          </ul>
+        </div>
+        <div class="row fill"></div>
+        <div class="column">
+          <span>a: <input type="range" step="0.01" min="-1" max="1" value="-0.78" id="a1" /></span>
+
+          <span>b: <input type="range" step="0.01" min="-1" max="1" value="-0.61" id="b1" /></span>
+        </div>
       </section>
 
       <section>
@@ -507,20 +523,28 @@
       <section>
         <!--1.1, 2.5-->
         <!--0.5, 1.17-->
-        <channel data-matte="#0F0" data-a="1.1" data-b="2.5" data-isMatte="true" data-x="-1"></channel>
-        <channel data-matte="#0F0" data-a="1.1" data-b="2.5" data-isMatte="true" data-vizMatte="false"></channel>
+        <channel data-matte="#0F0" data-a="#a2" data-b="#b2" data-isMatte="true" data-x="-1"></channel>
+        <channel data-matte="#0F0" data-a="#a2" data-b="#b2" data-isMatte="true" data-vizMatte="false"></channel>
         <h2>Option 3d: Chroma Matte</h2>
-        <ul>
-          <li>Keep areas where the other channels are stronger than the matte channel</li>
-          <li>Subtract matte channel from other channels
-            <ul>
-              <li>e.g. for a greenscreen: <em>a</em> = <em>r</em> + <em>b</em> - <em>g</em> &gt; 0</li>
-              <li>+ implies mixing light; - implies mixing dye</li>
-            </ul>
-          </li>
-          <li>Can basically only key out green or blue; too much red in skin tones</li>
-          <li>Getting a clear edge or transparency is hard (have to remove green bleeding from edges after)</li>
-        </ul>
+        <div class="row">
+          <ul>
+            <li>Keep areas where the other channels are stronger than the matte channel</li>
+            <li>Subtract matte channel from other channels
+              <ul>
+                <li>e.g. for a greenscreen: <em>a</em> = <em>r</em> + <em>b</em> - <em>g</em> &gt; 0</li>
+                <li>+ implies mixing light; - implies mixing dye</li>
+              </ul>
+            </li>
+            <li>Can basically only key out green or blue; too much red in skin tones</li>
+            <li>Getting a clear edge or transparency is hard (have to remove green bleeding from edges after)</li>
+          </ul>
+        </div>
+        <div class="row fill"></div>
+        <div class="column">
+          <span>a: <input type="range" step="0.01" min="-1" max="2" value="1" id="a2" /></span>
+
+          <span>b: <input type="range" step="0.01" min="-1" max="2" value="1.6" id="b2" /></span>
+        </div>
       </section>
 
       <section>

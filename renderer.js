@@ -1,4 +1,5 @@
 const USE_CAPTURE = true;
+const MIRROR = true;
 let img
 let capture
 let effectShader
@@ -42,7 +43,7 @@ float map(float value, float min1, float max1, float min2, float max2) {
 
 void main(void) {
   vec2 uv = vVertTexCoord.xy;
-  ${USE_CAPTURE ? 'uv.x = 1.0 - uv.x;' : ''}
+  ${USE_CAPTURE && MIRROR ? 'uv.x = 1.0 - uv.x;' : ''}
   if (uIsMatte == 0) {
     vec4 color = texture2D(uSampler, uv);
     if (uBW == 0) {
@@ -68,8 +69,12 @@ void main(void) {
     if (uNegate == 1) {
       color = vec3(1.0, 1.0, 1.0) - color;
     }
+    vec3 opposite = color * uMatteColor;
+    if (uMatteColor.r == 0.0 && uMatteColor.g == 0.0 && uMatteColor.b == 0.0) {
+      opposite = vec3(1.0, 1.0, 1.0);
+    }
     float matte = uA * dot(color * (vec3(1.0, 1.0, 1.0) - uMatteColor), vec3(1.0, 1.0, 1.0)) -
-      uB * dot(color * uMatteColor, vec3(1.0, 1.0, 1.0));
+      uB * dot(opposite, vec3(1.0, 1.0, 1.0));
     matte = clamp((matte + 0.2) / 0.2, 0.0, 1.0);
 
     if (uVizMatte == 1) {
